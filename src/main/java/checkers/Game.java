@@ -9,8 +9,8 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class Game extends Application {
-    private int col1, row1;
-    private int col2, row2;
+    private int x1, y1;
+    private int x2, y2;
     private int clicCount = 0;
 
 
@@ -41,15 +41,15 @@ public class Game extends Application {
             public void handle(MouseEvent e) {
                 clicCount++;
                 if(clicCount == 1) {
-                    col1 = (int) e.getSceneX() / 70;
-                    row1 = (int) e.getSceneY() / 70;
+                    x1 = (int) e.getSceneX() / 70;
+                    y1 = (int) e.getSceneY() / 70;
 
                 }
                 if(clicCount == 2) {
-                    col2 = (int) e.getSceneX() / 70;
-                    row2 = (int) e.getSceneY() / 70;
-                    System.out.println(row1 + ""+ col1 +""+ row2 +""+ col2);
-                    board.move(row1, col1, row2, col2);
+                    x2 = (int) e.getSceneX() / 70;
+                    y2 = (int) e.getSceneY() / 70;
+                    System.out.println(y1 + ""+ x1 +""+ y2 +""+ x2);
+                    board.move(y1, x1, y2, x2);
                     clicCount = 0;
                 }
                 board.showBoard();

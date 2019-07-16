@@ -36,18 +36,20 @@ public class Board {
     public void move(int row1, int col1, int row2, int col2) {
         Figure movedFig = boardRows.get(row1).getFigures().get(col1);
 
-        if (col1 != col2 && row2 != row1)
-            if (row2 >= 0 & row2 <= 7 & col2 >= 0 & col2 <= 7)
+        if (col1 != col2 && row2 != row1) {
+            if (row2 >= 0 & row2 <= 7 & col2 >= 0 & col2 <= 7) {
 
                 // Yellow player movements
                 if (movedFig.getColor().equals(YEllOW)) {
                     if (row2 == (row1 + 1)) {
-                        if (col2 == (col1 + 1) || col2 == (col1 - 1))
-                            if (boardRows.get(row2).getFigures().get(col2).getColor() == "none")
+                        if (col2 == (col1 + 1) || col2 == (col1 - 1)) {
+                            if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
                                 boardRows.get(row2).getFigures().remove(col2);
                                 boardRows.get(row2).getFigures().add(col2, movedFig);
                                 boardRows.get(row1).getFigures().remove(col1);
                                 boardRows.get(row1).getFigures().add(col1, new None("none"));
+                            }
+                        }
                     }
                     if (row2 == (row1 + 2)) {
                         if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
@@ -78,12 +80,14 @@ public class Board {
                 // Green player movements
                 if (movedFig.getColor().equals(GREEN)) {
                     if (row2 == (row1 - 1)) {
-                        if (col2 == (col1 + 1) || col2 == (col1 - 1))
-                            if (boardRows.get(row2).getFigures().get(col2).getColor() == "none")
+                        if (col2 == (col1 + 1) || col2 == (col1 - 1)) {
+                            if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
                                 boardRows.get(row2).getFigures().remove(col2);
                                 boardRows.get(row2).getFigures().add(col2, movedFig);
                                 boardRows.get(row1).getFigures().remove(col1);
                                 boardRows.get(row1).getFigures().add(col1, new None("none"));
+                            }
+                        }
                     }
                     if (row2 == (row1 - 2)) {
                         if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
@@ -110,6 +114,8 @@ public class Board {
                         }
                     }
                 }
+            }
+        }
     }
 
     @Override

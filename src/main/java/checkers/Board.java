@@ -85,7 +85,7 @@ public class Board {
                                 boardRows.get(row1).getFigures().remove(col1);
                                 boardRows.get(row1).getFigures().add(col1, new None("none"));
                     }
-                    if (row2 == (row1 - 2))
+                    if (row2 == (row1 - 2)) {
                         if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
                             if (col2 == (col1 + 2)) {
                                 if (getFigure(row1 - 1, col1 + 1).getColor().equals(YEllOW)) {
@@ -108,7 +108,7 @@ public class Board {
                                 }
                             }
                         }
-
+                    }
                 }
     }
 

@@ -5,12 +5,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
-    public static final String WHITE = "white";
-    public static final String BLACK = "black";
+    public static final String YEllOW = "yellow";
+    public static final String GREEN = "green";
     private final GridPane grid;
     private List<Row> boardRows = new ArrayList<>();
 
@@ -38,8 +39,8 @@ public class Board {
         if (col1 != col2 && row2 != row1)
             if (row2 >= 0 & row2 <= 7 & col2 >= 0 & col2 <= 7)
 
-                // White player (yellow) movements
-                if (movedFig.getColor().equals(WHITE)) {
+                // Yellow player movements
+                if (movedFig.getColor().equals(YEllOW)) {
                     if (row2 == (row1 + 1)) {
                         if (col2 == (col1 + 1) || col2 == (col1 - 1))
                             if (boardRows.get(row2).getFigures().get(col2).getColor() == "none")
@@ -51,7 +52,7 @@ public class Board {
                     if (row2 == (row1 + 2)) {
                         if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
                             if (col2 == (col1 + 2)) {
-                                if (getFigure(row1 + 1, col1 + 1).getColor().equals(BLACK))
+                                if (getFigure(row1 + 1, col1 + 1).getColor().equals(GREEN))
                                     boardRows.get(row2).getFigures().remove(col2);
                                     boardRows.get(row2).getFigures().add(col2, movedFig);
                                     boardRows.get(row1).getFigures().remove(col1);
@@ -60,7 +61,7 @@ public class Board {
                                     boardRows.get(row1 + 1).getFigures().add(col1 + 1, new None("none"));
                             }
                             if (col2 == (col1 - 2)) {
-                                if (getFigure(row1 + 1, col1 - 1).getColor().equals(BLACK))
+                                if (getFigure(row1 + 1, col1 - 1).getColor().equals(GREEN))
                                     boardRows.get(row2).getFigures().remove(col2);
                                     boardRows.get(row2).getFigures().add(col2, movedFig);
                                     boardRows.get(row1).getFigures().remove(col1);
@@ -72,8 +73,8 @@ public class Board {
                     }
                 }
 
-                // Black player (green) movements
-                if (movedFig.getColor().equals(BLACK)) {
+                // Green player movements
+                if (movedFig.getColor().equals(GREEN)) {
                     if (row2 == (row1 - 1)) {
                         if (col2 == (col1 + 1) || col2 == (col1 - 1))
                             if (boardRows.get(row2).getFigures().get(col2).getColor() == "none")
@@ -85,7 +86,7 @@ public class Board {
                     if (row2 == (row1 - 2))
                         if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
                             if (col2 == (col1 + 2)) {
-                                if (getFigure(row1 - 1, col1 + 1).getColor().equals(WHITE))
+                                if (getFigure(row1 - 1, col1 + 1).getColor().equals(YEllOW))
                                     boardRows.get(row2).getFigures().remove(col2);
                                     boardRows.get(row2).getFigures().add(col2, movedFig);
                                     boardRows.get(row1).getFigures().remove(col1);
@@ -94,7 +95,7 @@ public class Board {
                                     boardRows.get(row1 - 1).getFigures().add(col1 + 1, new None("none"));
                             }
                             if (col2 == (col1 - 2)) {
-                                if (getFigure(row1 - 1, col1 - 1).getColor().equals(WHITE))
+                                if (getFigure(row1 - 1, col1 - 1).getColor().equals(YEllOW))
                                     boardRows.get(row2).getFigures().remove(col2);
                                     boardRows.get(row2).getFigures().add(col2, movedFig);
                                     boardRows.get(row1).getFigures().remove(col1);
@@ -122,14 +123,14 @@ public class Board {
         for (int row = 0; row < 8; row++)
             for (int col = 0; col < 8; col++) {
                 if (getFigure(row, col) instanceof Pawn) {
-                    if (getFigure(row, col).getColor().equals(WHITE)) {
+                    if (getFigure(row, col).getColor().equals(YEllOW)) {
                         grid.add(new Circle(30, Color.YELLOW), col, row, 1, 1);
                     } else {
                         grid.add(new Circle(30, Color.GREEN), col, row, 1, 1);
                     }
                 }
                 if (getFigure(row, col) instanceof Queen) {
-                    if (getFigure(row, col).getColor().equals(WHITE)) {
+                    if (getFigure(row, col).getColor().equals(YEllOW)) {
                         grid.add(new Rectangle(30, 30, Color.YELLOW), col, row, 1, 1);
                     } else {
                         grid.add(new Rectangle(30, 30, Color.GREEN), col, row, 1, 1);
@@ -142,10 +143,10 @@ public class Board {
         for (int y = 0; y < 8; y++) {
             for (int x = 0; x < 8; x++) {
                 if (y <= 2 && (x + y) % 2 == 0) {
-                    setFigure(y, x, new Pawn(WHITE));
+                    setFigure(y, x, new Pawn(YEllOW));
                 }
                 if (y >= 5 && (x + y) % 2 == 0) {
-                    setFigure(y, x, new Pawn(BLACK));
+                    setFigure(y, x, new Pawn(GREEN));
                 }
 
             }

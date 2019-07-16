@@ -52,22 +52,24 @@ public class Board {
                     if (row2 == (row1 + 2)) {
                         if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
                             if (col2 == (col1 + 2)) {
-                                if (getFigure(row1 + 1, col1 + 1).getColor().equals(GREEN))
+                                if (getFigure(row1 + 1, col1 + 1).getColor().equals(GREEN)) {
                                     boardRows.get(row2).getFigures().remove(col2);
                                     boardRows.get(row2).getFigures().add(col2, movedFig);
                                     boardRows.get(row1).getFigures().remove(col1);
                                     boardRows.get(row1).getFigures().add(col1, new None("none"));
                                     boardRows.get(row1 + 1).getFigures().remove(col1 + 1);
                                     boardRows.get(row1 + 1).getFigures().add(col1 + 1, new None("none"));
+                                }
                             }
                             if (col2 == (col1 - 2)) {
-                                if (getFigure(row1 + 1, col1 - 1).getColor().equals(GREEN))
+                                if (getFigure(row1 + 1, col1 - 1).getColor().equals(GREEN)) {
                                     boardRows.get(row2).getFigures().remove(col2);
                                     boardRows.get(row2).getFigures().add(col2, movedFig);
                                     boardRows.get(row1).getFigures().remove(col1);
                                     boardRows.get(row1).getFigures().add(col1, new None("none"));
                                     boardRows.get(row1 + 1).getFigures().remove(col1 - 1);
                                     boardRows.get(row1 + 1).getFigures().add(col1 - 1, new None("none"));
+                                }
                             }
                         }
                     }
@@ -86,22 +88,24 @@ public class Board {
                     if (row2 == (row1 - 2))
                         if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
                             if (col2 == (col1 + 2)) {
-                                if (getFigure(row1 - 1, col1 + 1).getColor().equals(YEllOW))
+                                if (getFigure(row1 - 1, col1 + 1).getColor().equals(YEllOW)) {
                                     boardRows.get(row2).getFigures().remove(col2);
                                     boardRows.get(row2).getFigures().add(col2, movedFig);
                                     boardRows.get(row1).getFigures().remove(col1);
                                     boardRows.get(row1).getFigures().add(col1, new None("none"));
                                     boardRows.get(row1 - 1).getFigures().remove(col1 + 1);
                                     boardRows.get(row1 - 1).getFigures().add(col1 + 1, new None("none"));
+                                }
                             }
                             if (col2 == (col1 - 2)) {
-                                if (getFigure(row1 - 1, col1 - 1).getColor().equals(YEllOW))
+                                if (getFigure(row1 - 1, col1 - 1).getColor().equals(YEllOW)) {
                                     boardRows.get(row2).getFigures().remove(col2);
                                     boardRows.get(row2).getFigures().add(col2, movedFig);
                                     boardRows.get(row1).getFigures().remove(col1);
                                     boardRows.get(row1).getFigures().add(col1, new None("none"));
                                     boardRows.get(row1 - 1).getFigures().remove(col1 - 1);
                                     boardRows.get(row1 - 1).getFigures().add(col1 - 1, new None("none"));
+                                }
                             }
                         }
 

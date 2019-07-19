@@ -5,7 +5,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,10 +43,7 @@ public class Board {
                     if (row2 == (row1 + 1)) {
                         if (col2 == (col1 + 1) || col2 == (col1 - 1)) {
                             if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
-                                boardRows.get(row2).getFigures().remove(col2);
-                                boardRows.get(row2).getFigures().add(col2, movedFig);
-                                boardRows.get(row1).getFigures().remove(col1);
-                                boardRows.get(row1).getFigures().add(col1, new None("none"));
+                                moveFig(row1, col1, row2, col2, movedFig);
                             }
                         }
                     }
@@ -55,22 +51,12 @@ public class Board {
                         if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
                             if (col2 == (col1 + 2)) {
                                 if (getFigure(row1 + 1, col1 + 1).getColor().equals(GREEN)) {
-                                    boardRows.get(row2).getFigures().remove(col2);
-                                    boardRows.get(row2).getFigures().add(col2, movedFig);
-                                    boardRows.get(row1).getFigures().remove(col1);
-                                    boardRows.get(row1).getFigures().add(col1, new None("none"));
-                                    boardRows.get(row1 + 1).getFigures().remove(col1 + 1);
-                                    boardRows.get(row1 + 1).getFigures().add(col1 + 1, new None("none"));
+                                    kill(row1, col1, row2, col2, movedFig, row1 + 1, col1 + 1);
                                 }
                             }
                             if (col2 == (col1 - 2)) {
                                 if (getFigure(row1 + 1, col1 - 1).getColor().equals(GREEN)) {
-                                    boardRows.get(row2).getFigures().remove(col2);
-                                    boardRows.get(row2).getFigures().add(col2, movedFig);
-                                    boardRows.get(row1).getFigures().remove(col1);
-                                    boardRows.get(row1).getFigures().add(col1, new None("none"));
-                                    boardRows.get(row1 + 1).getFigures().remove(col1 - 1);
-                                    boardRows.get(row1 + 1).getFigures().add(col1 - 1, new None("none"));
+                                    kill(row1, col1, row2, col2, movedFig, row1 + 1, col1 - 1);
                                 }
                             }
                         }
@@ -82,10 +68,7 @@ public class Board {
                     if (row2 == (row1 - 1)) {
                         if (col2 == (col1 + 1) || col2 == (col1 - 1)) {
                             if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
-                                boardRows.get(row2).getFigures().remove(col2);
-                                boardRows.get(row2).getFigures().add(col2, movedFig);
-                                boardRows.get(row1).getFigures().remove(col1);
-                                boardRows.get(row1).getFigures().add(col1, new None("none"));
+                                moveFig(row1, col1, row2, col2, movedFig);
                             }
                         }
                     }
@@ -93,22 +76,12 @@ public class Board {
                         if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
                             if (col2 == (col1 + 2)) {
                                 if (getFigure(row1 - 1, col1 + 1).getColor().equals(YEllOW)) {
-                                    boardRows.get(row2).getFigures().remove(col2);
-                                    boardRows.get(row2).getFigures().add(col2, movedFig);
-                                    boardRows.get(row1).getFigures().remove(col1);
-                                    boardRows.get(row1).getFigures().add(col1, new None("none"));
-                                    boardRows.get(row1 - 1).getFigures().remove(col1 + 1);
-                                    boardRows.get(row1 - 1).getFigures().add(col1 + 1, new None("none"));
+                                    kill(row1, col1, row2, col2, movedFig, row1 - 1, col1 + 1);
                                 }
                             }
                             if (col2 == (col1 - 2)) {
                                 if (getFigure(row1 - 1, col1 - 1).getColor().equals(YEllOW)) {
-                                    boardRows.get(row2).getFigures().remove(col2);
-                                    boardRows.get(row2).getFigures().add(col2, movedFig);
-                                    boardRows.get(row1).getFigures().remove(col1);
-                                    boardRows.get(row1).getFigures().add(col1, new None("none"));
-                                    boardRows.get(row1 - 1).getFigures().remove(col1 - 1);
-                                    boardRows.get(row1 - 1).getFigures().add(col1 - 1, new None("none"));
+                                    kill(row1, col1, row2, col2, movedFig, row1 - 1, col1 - 1);
                                 }
                             }
                         }
@@ -116,6 +89,22 @@ public class Board {
                 }
             }
         }
+    }
+
+    private void kill(int row1, int col1, int row2, int col2, Figure movedFig, int i, int i2) {
+        moveFig(row1, col1, row2, col2, movedFig);
+        cleaningField(i, i2);
+    }
+
+    private void cleaningField(int i, int i2) {
+        boardRows.get(i).getFigures().remove(i2);
+        boardRows.get(i).getFigures().add(i2, new None("none"));
+    }
+
+    private void moveFig(int row1, int col1, int row2, int col2, Figure movedFig) {
+        boardRows.get(row2).getFigures().remove(col2);
+        boardRows.get(row2).getFigures().add(col2, movedFig);
+        cleaningField(row1, col1);
     }
 
     @Override
@@ -141,9 +130,9 @@ public class Board {
                 }
                 if (getFigure(row, col) instanceof Queen) {
                     if (getFigure(row, col).getColor().equals(YEllOW)) {
-                        grid.add(new Rectangle(30, 30, Color.YELLOW), col, row, 1, 1);
+                        grid.add(new Rectangle(30, 30, Color.DARKORANGE), col, row, 1, 1);
                     } else {
-                        grid.add(new Rectangle(30, 30, Color.GREEN), col, row, 1, 1);
+                        grid.add(new Rectangle(30, 30, Color.DARKGREEN), col, row, 1, 1);
                     }
                 }
             }

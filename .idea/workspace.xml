@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7458f3ee-3542-468a-9195-76f2a9927ba8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/First Project - game/checkers/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/First Project - game/checkers/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/First Project - game/checkers/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/First Project - game/checkers/Game$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/First Project - game/checkers/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/First Project - game/checkers/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/checkers/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/checkers/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/checkers/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/checkers/Game.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/checkers/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="98" column="22" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
+            <state relative-caret-position="303">
+              <caret line="65" selection-start-line="65" selection-end-line="65" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#806#807#0" expanded="true" />
@@ -281,18 +276,18 @@
       <workItem from="1563286595532" duration="13487000" />
       <workItem from="1563402351142" duration="1478000" />
       <workItem from="1563489508813" duration="2203000" />
-      <workItem from="1563529347405" duration="318000" />
+      <workItem from="1563529347405" duration="901000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63607000" />
+    <option name="totallyTimeSpent" value="64190000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1386" height="788" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21116139" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21116139" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -309,7 +304,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.23053434" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.23053434" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.18931298" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -628,8 +623,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/checkers/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="98" column="22" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
+        <state relative-caret-position="303">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#806#807#0" expanded="true" />

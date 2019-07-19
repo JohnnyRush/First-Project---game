@@ -38,58 +38,47 @@ public class Board {
         if (col1 != col2 && row2 != row1) {
             if (row2 >= 0 & row2 <= 7 & col2 >= 0 & col2 <= 7) {
 
-                // Yellow player movements
-                if (movedFig.getColor().equals(YEllOW)) {
-                    if (row2 == (row1 + 1)) {
-                        if (col2 == (col1 + 1) || col2 == (col1 - 1)) {
-                            if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
-                                moveFig(row1, col1, row2, col2, movedFig);
+                if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
+                    if (col2 == (col1 + 1) || col2 == (col1 - 1)) {
+                        if (movedFig.getColor().equals(GREEN) && row2 == (row1 - 1))
+                            moveFig(row1, col1, row2, col2, movedFig);
+                        if (movedFig.getColor().equals(YEllOW) && row2 == (row1 + 1))
+                            moveFig(row1, col1, row2, col2, movedFig);
+                    }
+                }
+                if (row2 == (row1 + 2) && movedFig.getColor().equals(YEllOW)) {
+                    if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
+                        if (col2 == (col1 + 2)) {
+                            if (getFigure(row1 + 1, col1 + 1).getColor().equals(GREEN)) {
+                                kill(row1, col1, row2, col2, movedFig, row1 + 1, col1 + 1);
                             }
                         }
-                    }
-                    if (row2 == (row1 + 2)) {
-                        if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
-                            if (col2 == (col1 + 2)) {
-                                if (getFigure(row1 + 1, col1 + 1).getColor().equals(GREEN)) {
-                                    kill(row1, col1, row2, col2, movedFig, row1 + 1, col1 + 1);
-                                }
-                            }
-                            if (col2 == (col1 - 2)) {
-                                if (getFigure(row1 + 1, col1 - 1).getColor().equals(GREEN)) {
-                                    kill(row1, col1, row2, col2, movedFig, row1 + 1, col1 - 1);
-                                }
+                        if (col2 == (col1 - 2)) {
+                            if (getFigure(row1 + 1, col1 - 1).getColor().equals(GREEN)) {
+                                kill(row1, col1, row2, col2, movedFig, row1 + 1, col1 - 1);
                             }
                         }
                     }
                 }
+            }
 
-                // Green player movements
-                if (movedFig.getColor().equals(GREEN)) {
-                    if (row2 == (row1 - 1)) {
-                        if (col2 == (col1 + 1) || col2 == (col1 - 1)) {
-                            if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
-                                moveFig(row1, col1, row2, col2, movedFig);
-                            }
+            if (movedFig.getColor().equals(GREEN) && row2 == (row1 - 2)) {
+                if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
+                    if (col2 == (col1 + 2)) {
+                        if (getFigure(row1 - 1, col1 + 1).getColor().equals(YEllOW)) {
+                            kill(row1, col1, row2, col2, movedFig, row1 - 1, col1 + 1);
                         }
                     }
-                    if (row2 == (row1 - 2)) {
-                        if (boardRows.get(row2).getFigures().get(col2).getColor() == "none") {
-                            if (col2 == (col1 + 2)) {
-                                if (getFigure(row1 - 1, col1 + 1).getColor().equals(YEllOW)) {
-                                    kill(row1, col1, row2, col2, movedFig, row1 - 1, col1 + 1);
-                                }
-                            }
-                            if (col2 == (col1 - 2)) {
-                                if (getFigure(row1 - 1, col1 - 1).getColor().equals(YEllOW)) {
-                                    kill(row1, col1, row2, col2, movedFig, row1 - 1, col1 - 1);
-                                }
-                            }
+                    if (col2 == (col1 - 2)) {
+                        if (getFigure(row1 - 1, col1 - 1).getColor().equals(YEllOW)) {
+                            kill(row1, col1, row2, col2, movedFig, row1 - 1, col1 - 1);
                         }
                     }
                 }
             }
         }
     }
+
 
     private void kill(int row1, int col1, int row2, int col2, Figure movedFig, int i, int i2) {
         moveFig(row1, col1, row2, col2, movedFig);
